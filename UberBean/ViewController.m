@@ -7,10 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "NetworkManager.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet MKMapView *myMapView;
 @property CLLocationManager *locationManager;
+@property (strong,nonatomic) NetworkManager *networkManager;
 @end
 
 @implementation ViewController
@@ -20,9 +22,20 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     self.locationManager = [[CLLocationManager alloc]init];
+    self.networkManager = [[NetworkManager alloc]init];
     
     [self.locationManager requestWhenInUseAuthorization];
     self.locationManager.delegate = self;
+    
+    
+    [self getYelpData];
+}
+-(void)getYelpData{
+    
+    
+    [self.networkManager getYelpData];
+    
+    
     
 }
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
