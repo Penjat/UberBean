@@ -19,5 +19,43 @@
     
     NSURL *url = [NSURL URLWithString:@"https://api.yelp.com/v3/businesses/search?term=cafe&latitude=49.281815&longitude=-123.108414"];
     [urlRequest setURL:url];
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration]; // 3
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
+    
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:urlRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        if (error) { // 1
+            // Handle the error
+            NSLog(@"error: %@", error.localizedDescription);
+            return;
+        }
+        
+        NSError *jsonError = nil;
+        NSDictionary *allData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError]; // 2
+        
+        if (jsonError) { // 3
+            // Handle the error
+            NSLog(@"jsonError: %@", jsonError.localizedDescription);
+            return;
+        }
+        
+        
+        //create 1 url
+        NSDictionary *businessDictionary =  allData[@"businesses"];
+        
+        NSLog(@"first business = %@",businessDictionary =  allData[@"businesses"]
+              [0]);
+        
+        
+        
+        
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            //UPDATES for UI in here
+        }];
+    }];
+    
+    [dataTask resume];
 }
 @end
