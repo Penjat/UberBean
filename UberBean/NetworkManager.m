@@ -10,14 +10,14 @@
 
 @implementation NetworkManager
 
--(void)getYelpData{
+-(void)getYelpDataWithLatitude:(float)latitude longitude:(float)longitude{
     NSLog(@"getting the yelp data");
     
     NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc]init];
     
     [urlRequest addValue:@"Bearer sNLOf-pW5pM381GYYBVWmRmN1p0iGqJA9Nrsz4vJF0_qB5FLIFZtSXnQZbmDDnIJTkTtxqpJdz8Bup6KXuctGcGdfukRq5MIBFeoQh2lERc9Zjgz_WyOP-Xz_YBMXHYx" forHTTPHeaderField:@"Authorization"];
-    
-    NSURL *url = [NSURL URLWithString:@"https://api.yelp.com/v3/businesses/search?term=cafe&latitude=49.281815&longitude=-123.108414"];
+    NSString *urlString = [NSString stringWithFormat:@"https://api.yelp.com/v3/businesses/search?term=cafe&latitude=%f&longitude=%f" ,latitude,longitude ];
+    NSURL *url = [NSURL URLWithString:urlString];
     [urlRequest setURL:url];
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration]; // 3
@@ -42,10 +42,9 @@
         
         
         //create 1 url
-        NSDictionary *businessDictionary =  allData[@"businesses"];
+        NSArray *businessArray =  allData[@"businesses"];
         
-        NSLog(@"first business = %@",businessDictionary =  allData[@"businesses"]
-              [0]);
+        NSLog(@"first business = %@",businessArray[0]);
         
         
         
@@ -53,9 +52,12 @@
         
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             //UPDATES for UI in here
+            [self.delegate recieveData:businessArray]; 
         }];
     }];
     
     [dataTask resume];
 }
 @end
+
+

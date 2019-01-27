@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "NetworkManager.h"
 
-@interface ViewController : UIViewController <CLLocationManagerDelegate>
+@interface ViewController : UIViewController <CLLocationManagerDelegate,DataReciever>
 
 
 @end

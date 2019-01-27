@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B1E5ACE21FCC9380069AF08 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1E5ACD21FCC9380069AF08 /* NetworkManager.m */; };
+		0B1E5AD421FCF4170069AF08 /* Cafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1E5AD321FCF4170069AF08 /* Cafe.m */; };
 		0B6CC1F421FBD470000F4F8C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B6CC1F321FBD470000F4F8C /* AppDelegate.m */; };
 		0B6CC1F721FBD470000F4F8C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B6CC1F621FBD470000F4F8C /* ViewController.m */; };
 		0B6CC1FA21FBD470000F4F8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B6CC1F821FBD470000F4F8C /* Main.storyboard */; };
@@ -30,6 +31,8 @@
 /* Begin PBXFileReference section */
 		0B1E5ACC21FCC9380069AF08 /* NetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		0B1E5ACD21FCC9380069AF08 /* NetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		0B1E5AD221FCF4170069AF08 /* Cafe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cafe.h; sourceTree = "<group>"; };
+		0B1E5AD321FCF4170069AF08 /* Cafe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cafe.m; sourceTree = "<group>"; };
 		0B6CC1EF21FBD470000F4F8C /* UberBean.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberBean.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B6CC1F221FBD470000F4F8C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0B6CC1F321FBD470000F4F8C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -90,6 +93,8 @@
 				0B6CC1F621FBD470000F4F8C /* ViewController.m */,
 				0B1E5ACC21FCC9380069AF08 /* NetworkManager.h */,
 				0B1E5ACD21FCC9380069AF08 /* NetworkManager.m */,
+				0B1E5AD221FCF4170069AF08 /* Cafe.h */,
+				0B1E5AD321FCF4170069AF08 /* Cafe.m */,
 				0B6CC1F821FBD470000F4F8C /* Main.storyboard */,
 				0B6CC1FB21FBD472000F4F8C /* Assets.xcassets */,
 				0B6CC1FD21FBD472000F4F8C /* LaunchScreen.storyboard */,
@@ -208,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B1E5AD421FCF4170069AF08 /* Cafe.m in Sources */,
 				0B1E5ACE21FCC9380069AF08 /* NetworkManager.m in Sources */,
 				0B6CC1F721FBD470000F4F8C /* ViewController.m in Sources */,
 				0B6CC20221FBD472000F4F8C /* main.m in Sources */,

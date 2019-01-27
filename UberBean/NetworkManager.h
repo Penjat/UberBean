@@ -10,8 +10,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NetworkManager : NSObject
--(void)getYelpData;
+@protocol DataReciever <NSObject>
+
+-(void)recieveData:(NSArray*)data;
+
 @end
+
+@interface NetworkManager : NSObject
+
+@property (weak,nonatomic)id<DataReciever>delegate;
+-(void)getYelpDataWithLatitude:(float)latitude longitude:(float)longitude;
+
+@end
+
+
 
 NS_ASSUME_NONNULL_END
