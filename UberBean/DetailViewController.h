@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Cafe.h"
+#import "NetworkManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DetailViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface DetailViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,DataReciever>
 @property(strong,nonatomic)Cafe *cafe;
 @end
 

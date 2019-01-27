@@ -8,6 +8,12 @@
 
 #import "ReviewCell.h"
 
+@interface ReviewCell()
+@property (weak, nonatomic) IBOutlet UILabel *reviewLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
+
+@end
+
 @implementation ReviewCell
 
 - (void)awakeFromNib {
@@ -19,6 +25,18 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+-(void)setUpWithData:(NSDictionary*)data{
+    
+    self.reviewLabel.text = data[@"text"];
+    
+    int rating = [data[@"rating"] intValue];
+    NSString *output = @"";
+    for(int i=0;i<rating ;i++){
+        output = [output stringByAppendingString:@"✰"];
+        
+    }
+    self.ratingLabel.text = output;
 }
 
 @end

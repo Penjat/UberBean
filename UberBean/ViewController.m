@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet MKMapView *myMapView;
 @property CLLocationManager *locationManager;
 @property (nonatomic)CLLocationCoordinate2D currentLocation;
-@property (strong,nonatomic) NetworkManager *networkManager;
+
 
 @property (strong,nonatomic) Cafe *closestCafe;
 @property (strong,nonatomic) Cafe *bestCafe;
@@ -33,10 +33,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
     self.cafes = [[NSMutableArray alloc]init];
     self.locationManager = [[CLLocationManager alloc]init];
-    self.networkManager = [[NetworkManager alloc]init];
-    self.networkManager.delegate = self;
+    
+    [NetworkManager sharedInstance].delegate = self;
     
     [self.locationManager requestWhenInUseAuthorization];
     self.locationManager.delegate = self;
@@ -44,13 +45,11 @@
     [self.locationManager startUpdatingLocation];
     
 }
--(void)getYelpData{
-    
-    
-    
-    
-    
+- (void)viewDidAppear:(BOOL)animated{
+    NSLog(@"the view was loaded");
+    [NetworkManager sharedInstance].delegate = self;
 }
+
 - (IBAction)goToBest:(id)sender {
     [self performSegueWithIdentifier:@"toDetails" sender:self.bestCafe];
 }
@@ -182,7 +181,7 @@
     
     
     
-    [self.networkManager getYelpDataWithLatitude:self.currentLocation.latitude longitude:self.currentLocation.longitude];
+    [[NetworkManager sharedInstance] getYelpDataWithLatitude:self.currentLocation.latitude longitude:self.currentLocation.longitude];
     for(Cafe *cafe in self.cafes){
         [cafe findDistance:self.currentLocation];
         

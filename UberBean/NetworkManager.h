@@ -19,7 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NetworkManager : NSObject
 
 @property (weak,nonatomic)id<DataReciever>delegate;
+
++(instancetype)sharedInstance;
 -(void)getYelpDataWithLatitude:(float)latitude longitude:(float)longitude;
+-(void)getYelpReviews:(NSString*)cafeId;
 
 @end
 
