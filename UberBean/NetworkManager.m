@@ -44,7 +44,7 @@
         //create 1 url
         NSArray *businessArray =  allData[@"businesses"];
         
-        NSLog(@"first business = %@",businessArray[0]);
+       
         
         
         

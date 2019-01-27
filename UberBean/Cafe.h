@@ -13,14 +13,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Cafe : NSObject<MKAnnotation>
 
+@property (nonatomic, readonly) NSDictionary *data;
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 @property (nonatomic, readonly, copy, nullable) NSString *title;
 @property (nonatomic, readonly, copy, nullable) NSString *subtitle;
+@property (nonatomic)float rating;
+@property (nonatomic)int numberOfRatings;
+@property (nonatomic)CLLocationDistance distance;
 
 - (instancetype)initWithCoordinate:(CLLocationCoordinate2D)aCoordinate
-                           andTitle:(NSString * _Nullable)aTitle
-                        andSubtitle:(NSString * _Nullable)aSubtitle;
-
+                           andData:(NSDictionary*)data;
+-(CLLocationDistance)findDistance:(CLLocationCoordinate2D)ourLocation;
 @end
 
 NS_ASSUME_NONNULL_END
